@@ -64,6 +64,12 @@ public class FXMLController {
     void doElenco(ActionEvent event) {
     	this.txtRisultato.setText(this.dictionary.dizionarioCompleto());
     }
+    
+    
+    @FXML
+    void doTranslate2(ActionEvent event) {
+
+    }
 
     @FXML
     void initialize() {

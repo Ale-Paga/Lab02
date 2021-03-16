@@ -31,15 +31,23 @@
                <children>
                   <Label text="Alien Text">
                      <HBox.margin>
-                        <Insets right="20.0" />
+                        <Insets right="20.0" top="20.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtParola" prefHeight="25.0" prefWidth="296.0" />
-                  <Button mnemonicParsing="false" onAction="#doTranslate" text="Translate">
+                  <TextField fx:id="txtParola" prefHeight="25.0" prefWidth="296.0">
                      <HBox.margin>
-                        <Insets />
+                        <Insets top="20.0" />
                      </HBox.margin>
-                  </Button>
+                  </TextField>
+                  <VBox spacing="5.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#doTranslate" text="Translate" />
+                        <Button mnemonicParsing="false" onAction="#doTranslate2" text="Translate 2" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
                </children>
                <padding>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
