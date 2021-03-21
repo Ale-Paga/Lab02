@@ -1,6 +1,7 @@
 package it.polito.tdp.alien;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -69,6 +70,35 @@ public class FXMLController {
     @FXML
     void doTranslate2(ActionEvent event) {
 
+    	String parola = txtParola.getText();
+
+    	if(parola.contains(" ")) {
+        	String[] testo = parola.split(" ");
+        	if(testo[0].matches("[a-zA-Z]*") && testo[1].matches("[a-zA-Z]*")) {
+        		testo[0]=testo[0].toLowerCase();
+        		testo[1]=testo[1].toLowerCase();
+        		dictionary.addWord2(testo[0], testo[1]);
+        		txtRisultato.setText("Parola aggiunta al dizionario correttamente");
+        		txtParola.setText("");
+        	}else {
+        		txtRisultato.setText("ERRORE: inserire solo lettere");
+        	}
+        }else {
+        	if(parola.matches("[a-zA-Z]*")) {
+        		parola = parola.toLowerCase();
+        		String traduzione="Le traduzioni sono: \n";
+        		ArrayList<String> trad = dictionary.translateWord2(parola);
+        		for(int i=0; i<trad.size();i++) {
+        			traduzione =traduzione + trad.get(i)+"\n";
+        		}
+            	txtRisultato.setText(traduzione);
+            	txtParola.setText("");
+        	}else {
+        		txtRisultato.setText("ERRORE: inserire solo lettere");
+        	}
+        	
+        }
+    	
     }
 
     @FXML
